@@ -2,7 +2,7 @@
 # Neural Network Model Report
 
 ## Overview of the Analysis
-In this challenge, a dataset of more than 34,000 organizations that have received funding from Alphabet Soup over the years, where the dataset includes columns comprised of: 
+In this challenge, a dataset of more than 34,000 organizations that have received funding from Alphabet Soup over the years has been provided, where the dataset includes columns comprised of: 
 
 * (1) EIN and NAME: Identification columns;
 * (2) APPLICATION_TYPE: Alphasbet Soup application type;
@@ -16,8 +16,25 @@ In this challenge, a dataset of more than 34,000 organizations that have receive
 * (10) ASK_AMT: Funding amount requested; and
 * (11) IS_SUCCESSFUL: Was the money used effectively.
 
+Using the dataset, a binary clasifier has been created to predict whether applicants will be successful if funded by Alphabet Soup.
+
 ### Results of the Analysis
-After being read into a Pandas DataFrame, the original data provided in a .csv was found to comprise the following features: (1) loan_size, (2) interest_rate, (3) borrower_income, (4) debt_to_income, (5) num_of_accounts, (6) derogatory_marks, (7) total_debt, and (8) loan_status.  loan_status feature is comprised of "0" or "1" indicative of "healthy loans" or "high-risk loans," respectively. The loan_status is defined as a label and it was separated from the other features.  There are 2500 rows in which loan_status feature is "1" indicative of a high-risk loan."
+* Data Preprocessing:
+  * The following is identifed as the target variable: IS_SUCCESSFUL.
+
+  * Inital Model:
+    * The following features for our model are APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
+    * The EIN and NAME columns have been dropped.
+
+    ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/initial_drop_EIN_and_NAME.png)
+  
+
+  * Optimized Model:
+    * The following features for our model are NAME, APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
+    * The EIN column has been dropped only.
+
+    ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/optimization_drop_EIN_only.png)
+
 
 ### Goal of this Challenge
 
