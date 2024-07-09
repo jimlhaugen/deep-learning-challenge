@@ -64,7 +64,7 @@ Using the dataset, a binary classifier has been created to predict whether appli
 
     ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/optimization_accuracy.png)
 
-    * The steps taken to achieve the target accuracy of higher than 75% included varying the configurations of the initial model in multiple examinations by (1) creating more bins, (3) increasing and decreasing the number of values for each bin, (4) adding hidden layers, and (5) addingor reducing the number of epochs.  None of these configurations produced a favorable result of achieving a target predictive accuracy of higher than 75%.  In fact, a majority of the configurations led to poorer results than the results obtained with the initial model.
+    * The steps taken to achieve the target accuracy of higher than 75% included varying the configurations of the initial model in multiple examinations by (1) creating more bins, (3) increasing and decreasing the number of values for each bin, (4) adding hidden layers, and (5) adding or reducing the number of epochs.  None of these configurations produced a favorable result of achieving a target predictive accuracy of higher than 75%.  In fact, a majority of the configurations led to poorer results than the results obtained with the initial model.
     * As shown above, the steps taken to achieve the target accuracy included (1) including the NAME variable and (2) reducing the number of neurons in both first and second layers.  Despite the numerous attempts of varying at least three model configuration factors of the inital model, a target predictive accuracy of higher than 75% was not achieved. 
 
 ### Summary
