@@ -5,8 +5,8 @@
 In this challenge, a dataset of more than 34,000 organizations that have received funding from Alphabet Soup over the years has been provided, where the dataset includes columns comprised of: 
 
 * (1) EIN and NAME: Identification columns;
-* (2) APPLICATION_TYPE: Alphasbet Soup application type;
-* (3) AFFILICATION: Affiliated setor of industry;
+* (2) APPLICATION_TYPE: Alphabet Soup application type;
+* (3) AFFILICATION: Affiliated sector of industry;
 * (4) CLASSIFICATION: Government organization classification;
 * (5) USE_CASE: Use case for funding;
 * (6) ORGANIZATION: Organization type;
@@ -16,13 +16,13 @@ In this challenge, a dataset of more than 34,000 organizations that have receive
 * (10) ASK_AMT: Funding amount requested; and
 * (11) IS_SUCCESSFUL: Was the money used effectively.
 
-Using the dataset, a binary clasifier has been created to predict whether applicants will be successful if funded by Alphabet Soup.
+Using the dataset, a binary classifier has been created to predict whether applicants will be successful if funded by Alphabet Soup.
 
 ### Results of the Analysis
 * Data Preprocessing
   * The following was identified as the target variable for both the initial and optimized models: IS_SUCCESSFUL.
 
-  * Inital Model:
+  * Initial Model:
     * The following were identified as the feature variables: APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
     * The EIN and NAME variables were dropped.
 
@@ -38,10 +38,10 @@ Using the dataset, a binary clasifier has been created to predict whether applic
 * Compiling, Training, and Evaluating
   * As provided in the Starter_Code of this Challenge, two hidden layers were employed for initial model; this remained unchanged for the optimized model.
   * The two hidden layers of both models employed a "relu" activation function for efficient and relatively simple computations. (Ref: https://www.bing.com/search?q=relu+and+sigmoid+functions&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=relu+and+sigmoid+functions&sc=11-26&sk=&cvid=ABD8A7536AB143C5BAA17DEFF5DCEF0B&ghsh=0&ghacc=0&ghpl=)
- * The output layers of both models employed a "sigmoid" activation function for its suitability in tasks like binary classficiation. (Id.)
+ * The output layers of both models employed a "sigmoid" activation function for its suitability in tasks like binary classification. (Id.)
 
 
-  * Inital Model:
+  * Initial Model:
     * As provided in the Starter_Code of this Challenge, the first and second hidden layers comprised 80 and 30 neurons, respectively.
 
     ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/initial_nodes.png)
@@ -53,7 +53,7 @@ Using the dataset, a binary clasifier has been created to predict whether applic
 
     ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/optimization_nodes.png)
 
-  * Inital Model:
+  * Initial Model:
     * Target accuracy achieved 72.65%.
 
     ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/initial_accuracy.png)
