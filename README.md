@@ -19,73 +19,53 @@ In this challenge, a dataset of more than 34,000 organizations that have receive
 Using the dataset, a binary clasifier has been created to predict whether applicants will be successful if funded by Alphabet Soup.
 
 ### Results of the Analysis
-* Data Preprocessing:
-  * The following is identifed as the target variable: IS_SUCCESSFUL.
+* Data Preprocessing
+  * The following was identified as the target variable for both the initial and optimized models: IS_SUCCESSFUL.
 
   * Inital Model:
-    * The following features for our model are APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
-    * The EIN and NAME columns have been dropped.
+    * The following were identified as the feature variables: APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
+    * The EIN and NAME variables were dropped.
 
     ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/initial_drop_EIN_and_NAME.png)
   
 
   * Optimized Model:
-    * The following features for our model are NAME, APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
-    * The EIN column has been dropped only.
+    * The following were identified as the feature variables: NAME, APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, and ASK_AMT.
+    * Only the EIN variable was dropped.
 
     ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/optimization_drop_EIN_only.png)
 
-
-### Goal of this Challenge
-
-The goal of this challenge is to employ the stages of the Machine Learning Process to evaluate the performance of a logistic regression model fitted with (1) this original data and (2) a resampled training data of this original data which will allow a user to predict whether the logistic regression model predicts and identifies loans as being either "healthy" or "high-risk" when fitted with either the original data or the resampled data. 
-
-### Stages of the Machine Learning Process
-
-* Split the Data into Training and Testing Sets
-  * Read the lending_data.csv data from the Resources folder into a Pandas DataFrame.
-  * Create the labels set (y) from the “loan_status” column, and then create the features (X) DataFrame from the remaining columns.
-  * Check the balance of the labels variable (y) by using the value_counts function.
-  * Split the data into training and testing datasets by employing the train_test_split module imported from sklearn.model_selection.
-
-* Create a Logistic Regression Model with the Original Data
-  * Fit a logistic regression model by using the training data (X_train and y_train) by employing the LogisticRegression module imported from sklearn.linear_model.
-  * Save the predictions on the testing data labels by using the testing feature data (X_test) and the fitted model.
-  * Evaluate the model’s performance with (1) balanced accuracy, (2) a confusion matrix, and (3) a classification report, where the balanced_accuracy_score, confusion_matrix, and classification_report modules have been imported from sklearn.metrics.
-  * Discuss how well the logistic regression model predicted both the 0 (healthy loan) and 1 (high-risk loan) labels as a function of (1) a balanced accuracy score, (2) precision scores, (3) recall scores, and f1-scores.
-
-* Predict a Logistic Regression Model with Resampled Training Data
-  * Use the RandomOverSampler module from the imbalanced-learn library to resample the data. It was confirmed that the labels had an equal number of data points.
-  * Use the LogisticRegression classifier and the resampled data to fit the model and make predictions.
-  * Evaluate the model’s performance with (1) balanced accuracy, (2) a confusion matrix, and (3) a classification report from  the modules imported above
-  * Discuss how well the logistic regression model -- fitted with the oversampled data -- predicted both the 0 (healthy loan) and 1 (high-risk loan) labels as a function of (1) a balanced accuracy score, (2) precision scores, (3) recall scores, and f1-scores.
+* Compiling, Training, and Evaluating
+  * As provided in the Starter_Code of this Challenge, two hidden layers were employed for initial model; this remained unchanged for the optimized model.
+  * The two hidden layers of both models employed a "relu" activation function for efficient and relatively simple computations. (Ref: https://www.bing.com/search?q=relu+and+sigmoid+functions&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=relu+and+sigmoid+functions&sc=11-26&sk=&cvid=ABD8A7536AB143C5BAA17DEFF5DCEF0B&ghsh=0&ghacc=0&ghpl=)
+ * The output layers of both models employed a "sigmoid" activation function for its suitability in tasks like binary classficiation. (Id.)
 
 
-## Results (Scores)
+  * Inital Model:
+    * As provided in the Starter_Code of this Challenge, the first and second hidden layers comprised 80 and 30 neurons, respectively.
 
-* Machine Learning Model 1 (Original Data):
-  * Balanced Accuracy: 95.20%
-  * Precision: 100% for "healthy loans"; 85% for "high-risk loans"
-  * Recall: 99% for "healthy loans"; 91% for "high-risk loans"
+    ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/initial_nodes.png)
+  
 
-* Machine Learning Model 2 (Resampled Training Data):
-  * Balanced Accuracy: 99.37%
-  * Precision: 100% for "healthy loans"; 84% for "high-risk loans"
-  * Recall: 99% for "healthy loans"; 99% for "high-risk loans"
+  * Optimized Model:
+    * As instructed, differing values of neurons were repeatedly examined in both the first and second hidden layers in successive attempts to achieve a target predictive accuracy of higher than 75%.
+    * Favorable results were obtained when the first and second hidden layers comprised merely 8 and 3 neurons, respectively.
 
-## Summary
+    ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/optimization_nodes.png)
 
-For the logistic regression model fit with the original data, the balanced accuracy score of the model is 95.20%.  The precision scores of healthy and high-risk loans are 100% and 85%, respectively.  The recall scores of healthy and high-risk loans are 99% and 91%, respectively.  The f1-scores of healthy and high-risk loans are 100% and 88%, respectively,
+  * Inital Model:
+    * Target accuracy achieved 72.65%.
 
-For the logistic regression model fit with the oversampled data, the accuracy score of the model is nearly perfect at 99.37%.  The precision scores of healthy and high-risk loans are 100% and 84%, respectively, the latter being a slight decrease of 1%.  The recall scores of healthy and high-risk loans are 99% and 99%, respectively, the latter being a significant increase of 8%.  The f1-scores of healthy and high-risk loans are 100% and 91%, respectively, the latter being an increase of 3%.
+    ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/initial_accuracy.png)
+  
 
-In conclusion, it is recommended that the oversampled data should be employed (i.e., fitted) to logistic regression model for the following reasons:
+  * Optimized Model:
+    * Target accuracy achieved 76.97%, thereby exceeding a target predictive accuracy of 75%.
 
-Firstly, accuracy measures how many of the loans have been classified correctly, and 99.37% of the loans have been classified correctly with the oversampled data which is 4.17% better than using the original data.  
+    ![image](https://github.com/jimlhaugen/deep-learning-challenge/blob/master/Screenshots/optimization_accuracy.png)
 
-Secondly, precision scores measure how many of the loans of the model were predicted as healthy loans and how many were predicted as high-risk loans; although the use of the original data results with a better predictor of high-risk loans, its precision score is merely 1% better when oversampled data is used.  
+    * The steps taken to achieve the target accuracy of higher than 75% included varying the configurations of the initial model in multiple examinations by (1) creating more bins, (3) increasing and decreasing the number of values for each bin, (4) adding hidden layers, and (5) addingor reducing the number of epochs.  None of these configurations produced a favorable result of achieving a target predictive accuracy of higher than 75%.  In fact, a majority of the configurations led to poorer results than the results obtained with the initial model.
+    * As shown above, the steps taken to achieve the target accuracy included (1) including the NAME variable and (2) reducing the number of neurons in both first and second layers.  Despite the numerous attempts of varying at least three model configuration factors of the inital model, a target predictive accuracy of higher than 75% was not achieved. 
 
-Thirdly, recall measures how many of the loans of the model were correctly identified as healthy loans and how many were correctly identified as high-risk loans.  With the oversampled data, 99% of the loans were correctly identified as both healthy loans and high-risk loans.
-
-Lastly, the f1-score is the harmonic mean of precision and recall, and higher f1-scores reflect a better balance between precision and recall.  When comparing the f1-scores with the two types of data, the higher f1-score of 91% for high-risk loans produced by the oversampled data reflects a better balance between the precision and recall scores than the f1-score of 88% produced by the original data. 
-
+### Summary
+The iniital deep learning model was unable to exceed a predictive accuracy of higher than 75%.  Even after changing the configuration of the model by changing numerous factors, the occurance of exceeding 75% was only achieved once.  This is disappointing and suggests that the initial model is unsuitable for classification problem.  Rather, a Logistic Regression Model with a RandomOverSampler module would likely produce a more favorable accuracy based upon results achieved in preceding Challenge 20 with a dataset of similar varaibles.
